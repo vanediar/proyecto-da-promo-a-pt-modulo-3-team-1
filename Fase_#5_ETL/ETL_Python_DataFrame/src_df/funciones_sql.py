@@ -1,11 +1,12 @@
+#%%
 import mysql.connector
-
+#%%
 def creacion_bbdd_tablas (query, contrasena,nombre_bbdd = None):
     if nombre_bbdd is not None:
         cnx = mysql.connector.connect (
             user = "root",
             password = contrasena,
-            host = "VER CUAL PONER")
+            host = "127.0.0.1")
         mycursor = cnx.cursor()
 
         try:
@@ -20,7 +21,7 @@ def creacion_bbdd_tablas (query, contrasena,nombre_bbdd = None):
             cnx = mysql.connector.connect (
             user = "root",
             password = contrasena,
-            host = "VER CUAL PONER",
+            host = "127.0.0.1"",
             database = nombre_bbdd)
 
             mycursor = cnx.cursor()
@@ -34,12 +35,12 @@ def creacion_bbdd_tablas (query, contrasena,nombre_bbdd = None):
                 print("SQLSTATE", err.sqlstate) 
                 print("Message", err.msg)
 
-
+#%%
 def insertar_datos(query, contrasena, nombre_bbdd, lista_tuplas):
             cnx = mysql.connector.connect (
             user = "root",
             password = contrasena,
-            host = "VER CUAL PONER")
+            host = "127.0.0.1")
              
             mycursor = cnx.cursor()
 
@@ -53,4 +54,6 @@ def insertar_datos(query, contrasena, nombre_bbdd, lista_tuplas):
                 print("Error code", err.errno)
                 print("SQLSTATE", err.sqlstate) 
                 print("Message", err.msg)
+
                   
+

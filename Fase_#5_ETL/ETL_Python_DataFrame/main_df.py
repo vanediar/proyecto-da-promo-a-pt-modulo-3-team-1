@@ -32,20 +32,28 @@ sf.exploracion_df(nuevo_df)
 #%%
 query.query_creacion_bbdd
 # %%
-bbdd.creacion_bbdd_tablas(query.query_creacion_bbdd, "admin")
-bbdd.creacion_bbdd_tablas(query.query_personal_employee, "admin", "abc_corporation")
-bbdd.creacion_bbdd_tablas(query.query_job_satisfaction, "admin", "abc_corporation")
-bbdd.creacion_bbdd_tablas(query.query_job_data, "admin", "abc_corporation")
+bbdd.creacion_bbdd_tablas(query.query_creacion_bbdd, "alumnaadalab")
+bbdd.creacion_bbdd_tablas(query.query_personal_employee, "alumnaadalab", "abc_corporation")
+bbdd.creacion_bbdd_tablas(query.query_job_satisfaction, "alumnaadalab", "abc_corporation")
+bbdd.creacion_bbdd_tablas(query.query_job_data, "alumnaadalab", "abc_corporation")
 #%%
-df = pd.read_csv("nombre csv")
+df = pd.read_csv("/home/v_fischer/Adalab/proyecto-da-promo-a-pt-modulo-3-team-1/Fase1_y_2_EDA&Limpiza_Data/df_transformado_limpio.csv")
 df.head()
 
 #%%
-datos_tabla_employee = list(set(zip(df["poner las columnas"].values)))
-datos_job_satisfaction = list(set(zip(df["poner las columnas"].values)))
-datos_job_data = list(set(zip(df["poner las columnas"].values)))
+datos_tabla_employee = list(set(zip(df["employeenumber"].values, df["age"].values, df["education"].values, df["educationfield"].values, df["gender"].values, 
+                                    df["maritalstatus"].values, df["datebirth"].values)))
+#%%
+datos_job_satisfaction = list(set(zip(df["employeenumber"].values, df["attrition"].values, df["businesstravel"].values, df["distancefromhome"].values, df["environmentsatisfaction"].values, 
+                                    df["jobinvolvement"].values, df["jobsatisfaction"].values, df["numcompaniesworked"].values, df["overtime"].values, df["relationshipsatisfaction"].values, df["worklifebalance"].values)))
+#%%
+datos_job_data = list(set(zip(df["employeenumber"].values, df["dailyrate"].values, df["hourlyrate"].values, df["joblevel"].values, df["jobrole"].values, 
+                                    df["monthlyincome"].values, df["monthlyrate"].values, df["percentsalaryhike"].values, df["performancerating"].values, df["stockoptionlevel"].values, df["worklifebalance"].values,
+                                    df["totalworkingyears"].values, df["trainingtimeslastyear"].values, df["yearsatcompany"].values, df["yearssincelastpromotion"].values, df["yearswithcurrmanager"].values, df["remotework"].values)))
 
 #Insertar datos
-bbdd.insertar_datos(query.query_insertar_employee, "admin", "abc_corporation", datos_tabla_employee )
-bbdd.insertar_datos(query.query_insertar_employee, "admin", "abc_corporation", datos_job_satisfaction)
-bbdd.insertar_datos(query.query_insertar_employee, "admin", "abc_corporation", datos_job_data)
+#%%
+bbdd.insertar_datos(query.query_insertar_employee, "AlumnaAdalab", "abc_corporation", datos_tabla_employee )
+bbdd.insertar_datos(query.query_insertar_job_satisfaction, "AlumnaAdalab", "abc_corporation", datos_job_satisfaction)
+bbdd.insertar_datos(query.query_insertar_job_data, "AlumnaAdalab", "abc_corporation", datos_job_data)
+# %%
