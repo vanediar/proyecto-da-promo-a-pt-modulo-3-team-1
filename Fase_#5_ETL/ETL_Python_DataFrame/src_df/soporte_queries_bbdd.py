@@ -44,9 +44,17 @@ query_job_satisfaction = """CREATE TABLE job_satisfaction (
                         overtime VARCHAR(250));
                         """
 
-query_insertar_employee = "INSERT INTO personal_employee (employeenumber,age,education,educationfield,gender,maritalstatus,datebirth) VALUES (%s)"
-query_insertar_job_satisfaction = """INSERT INTO job_satisfaction (employeenumber,attrition,businesstravel,distancefromhome,environmentsatisfaction,
-                                    jobinvolvement,jobsatisfaction,numcompaniesworked,overtime,relationshipsatisfaction,worklifebalance) VALUES (%s)"""
-query_insertar_job_data = """INSERT INTO job_data (employeenumber,dailyrate,hourlyrate,joblevel,jobrole,monthlyincome,monthlyrate,percentsalaryhike,
-                        performancerating,stockoptionlevel,totalworkingyears,trainingtimeslastyear,yearsatcompany,yearssincelastpromotion,yearswithcurrmanager,
-                        remotework) VALUES (%s)"""
+query_insertar_employee = "INSERT INTO personal_employee (employeenumber, age, education, educationfield, gender, maritalstatus, datebirth) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+
+query_insertar_job_satisfaction = """
+    INSERT INTO job_satisfaction (employeenumber, attrition, businesstravel, distancefromhome, environmentsatisfaction,
+                                   jobinvolvement, jobsatisfaction, numcompaniesworked, overtime, relationshipsatisfaction, worklifebalance)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+"""
+
+query_insertar_job_data = """
+    INSERT INTO job_data (employeenumber, dailyrate, hourlyrate, joblevel, jobrole, monthlyincome, monthlyrate, percentsalaryhike,
+                          performancerating, stockoptionlevel, totalworkingyears, trainingtimeslastyear, yearsatcompany, yearssincelastpromotion,
+                          yearswithcurrmanager, remotework)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+"""
