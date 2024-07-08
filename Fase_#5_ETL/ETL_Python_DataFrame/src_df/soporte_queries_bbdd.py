@@ -21,7 +21,7 @@ query_job_data = """CREATE TABLE job_data (
                     jobrole VARCHAR(250),
                     joblevel INT,
                     totalworkingyears INT,
-                    trainingtimelastyear INT,
+                    trainingtimeslastyear INT,
                     yearsatcompany INT,
                     yearssincelastpromotion INT,
                     yearswithcurrmanager INT,
@@ -58,3 +58,5 @@ query_insertar_job_data = """
                           yearswithcurrmanager, remotework)
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 """
+
+
