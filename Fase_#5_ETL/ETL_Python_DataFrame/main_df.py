@@ -62,10 +62,5 @@ datos_job_satisfaction_convert = bbdd.convertir_tipos(datos_job_satisfaction)
 datos_job_data_convert = bbdd.convertir_tipos(datos_job_data)
 #%%
 bbdd.insertar_datos(query.query_insertar_employee, "AlumnaAdalab", nombre_bbdd, datos_tabla_employee_convert )
-#%%
 bbdd.insertar_datos(query.query_insertar_job_satisfaction, "AlumnaAdalab", nombre_bbdd, datos_job_satisfaction_convert)
-#%%
 bbdd.insertar_datos(query.query_insertar_job_data, "AlumnaAdalab", nombre_bbdd, datos_job_data_convert)
-
-
-# %%
